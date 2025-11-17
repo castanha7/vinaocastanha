@@ -1,1 +1,262 @@
+/* ===== CONFIGURAÇÕES GLOBAIS E VARIÁVEIS DE COR ===== */
+:root {
+    /* Tema Claro (Light) */
+    --primary-color: #3b82f6;  /* Azul principal */
+    --secondary-color: #a3bffa; /* Azul claro */
+    --bg-color: #f0f4f8;       /* Fundo (Quase branco azulado) */
+    --text-color: #1e293b;     /* Texto (Azul escuro) */
+    --card-bg: #ffffff;        /* Fundo dos cards */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 
+    /* Tema Escuro (Dark) - será ativado com a classe .dark-mode */
+    --dark-bg: #1a202c;        /* Fundo (Azul bem escuro) */
+    --dark-text: #e2e8f0;      /* Texto (Cinza azulado claro) */
+    --dark-card-bg: #2d3748;   /* Fundo dos cards (Azul-cinza) */
+    --dark-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Aplicando o Tema Escuro */
+body.dark-mode {
+    --bg-color: var(--dark-bg);
+    --text-color: var(--dark-text);
+    --card-bg: var(--dark-card-bg);
+    --shadow: var(--dark-shadow);
+}
+
+/* ===== ESTILOS BASE ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+h1, h2, h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* ===== CABEÇALHO (HOME) ===== */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: var(--text-color);
+}
+
+header .intro {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 10px auto 0;
+    font-style: italic;
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+/* ===== NAVEGAÇÃO (FRASES CHAMATIVAS) ===== */
+.main-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.nav-link {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.2);
+}
+
+.nav-link h3 {
+    font-size: 1.5rem;
+}
+
+.nav-link p {
+    font-size: 1rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* ===== SEÇÕES DE PÁGINA (Conteúdo Escondido) ===== */
+.page-section {
+    display: none; /* Escondido por padrão */
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Botão Voltar */
+.back-btn {
+    background: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.back-btn:hover {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+/* Galerias de Fotos */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* Seção Time */
+.time-content {
+    text-align: center;
+}
+.time-logo {
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+/* Seção Redes Sociais */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+.social-link:hover {
+    transform: scale(1.03);
+}
+.social-link i {
+    font-size: 1.8rem;
+    margin-right: 15px;
+    width: 30px; /* Alinhamento */
+    text-align: center;
+}
+
+/* Cores das Redes */
+.instagram { background: #f0f0f0; color: #C13584; }
+.whatsapp { background: #f0f0f0; color: #25D366; }
+.spotify { background: #f0f0f0; color: #1DB954; }
+
+body.dark-mode .social-link {
+    background: var(--bg-color); /* Fundo da página escura */
+}
+
+
+/* ===== BOTÃO MODO ESCURO ===== */
+#theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+/* Esconde o ícone que não está ativo */
+#theme-toggle .fa-sun { display: none; }
+body.dark-mode #theme-toggle .fa-sun { display: inline-block; }
+body.dark-mode #theme-toggle .fa-moon { display: none; }
+
+/* ===== RESPONSIVIDADE (Celular) ===== */
+@media (max-width: 768px) {
+    .container {
+        margin-top: 80px; /* Espaço para o botão de tema */
+    }
+    .main-nav {
+        grid-template-columns: 1fr; /* Coluna única em celulares */
+    }
+    .gallery {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+    header h1 { font-size: 2rem; }
+}
